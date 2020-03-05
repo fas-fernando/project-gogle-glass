@@ -184,7 +184,7 @@ table#tabelaspec caption span {
 /* Formatação do article */
 
 article#noticia-principal h2 {
-    font-size: 13px;
+    font-size: 13pt;
     color: #606060;
     background-color: #dddddd;
     padding: 5px 0px 5px 10px;

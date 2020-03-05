@@ -1,47 +1,154 @@
-Google Glass
-A revolução do Google está chegando
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tudo sobre Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css"/>
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calcTotal(){
+            let quantidade = parseInt(document.getElementById('cQuan').value);
+            let total = quantidade * 1500;
+            document.getElementById('cPreco').value = total;
+        }
+    </script>
+</head>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
 
-[AQUI ENTRA UMA FOTO]
+            <img id="icone" src="_imagens/contato.png"/>
 
-Menu Principal
-- Home
-- Especificações
-- Fotos
-- Multimídia
-- Fale conosco
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudarFoto('_imagens/home.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudarFoto('_imagens/especificacoes.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudarFoto('_imagens/fotos.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudarFoto('_imagens/multimidia.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                    <li onmouseover="mudarFoto('_imagens/contato.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header>
 
-Fale Conosco > Contato
-Formulário de Contato
-por Gustavo Guanabara
-Atualizado em 01/Maio/2013
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale Conosco > Contato</h3>
+                        <h1>Formulário de Contato</h1>
+                        <h2>por Fernando Alves de Souza</h2>
+                        <h3 class="direita">Atualizado em Março/2020</h3>
+                    </hgroup>
+                </header>
 
-Identificação do Usuário
-    Nome:
-    Senha:
-    E-mail:
-    Sexo:
-        - Masculino
-        - Feminino
-    Data de Nascimento:
+                <form method="post" id="form-contato" action="mailto: benesinho14@gmail.com" oninput="calcTotal()">
+                    <fieldset id="usuario">
+                        <legend>Identificação do Usuário</legend>
+                            <p>
+                                <label for="cNome">Nome:</label>
+                                <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"/>
+                            </p>
+                            <p>
+                                <label for="cSenha">Senha:</label>
+                                <input type="password" name="tSenha" id="cSenha" size="20" maxlength="8" placeholder="8 digitos"/>
+                            </p>
+                            <p>
+                                <label for="cEmail">E-mail:</label>
+                                <input type="email" name="tEmail" id="cEmail" size="30" maxlength="50" placeholder="contato@contato.com"/>
+                            </p>
+                            <fieldset id="sexo">
+                                <legend>Sexo</legend>
+                                    <input type="radio" name="tSexo" id="cMasculino"/><label for="cMasculino">Masculino</label></br>
+                                    <input type="radio" name="tSexo" id="cFeminino"/><label for="cFeminino">Feminino</label>
+                            </fieldset>
+                            <p>Data de Nascimento:<input type="date" name="tNasc" id="cNasc"/></p>
+                    </fieldset>
+    
+                    <fieldset id="endereco">
+                        <legend>Endereço do Usuário</legend>
+                            <p>
+                                <label for="cLogradouro">Logradouro:</label>
+                                <input type="text" name="tLogradouro" id="cLogradouro" size="25" maxlength="50" placeholder="Rua: Tal"/>
+                            </p>
+                            <p>
+                                <label for="cNum">Número:</label>
+                                <input type="text" name="tNum" id="cNum" size="8" maxlength="8" placeholder="1234"/>
+                            </p>
+                            <p>
+                                <label for="cEst">Estado:</label>
+                                <select name="tEst" id="cEst">
+                                    <optgroup label="Região Sudeste">
+                                        <option value="SP">São Paulo</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="MG">Minas Gerais</option>
+                                    </optgroup>
+                                    <optgroup label="Região Sul">
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                    </optgroup>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="cCid">Cidade:</label>
+                                <input type="text" name="tCid" id="cCid" size="20" maxlength="40"placeholder="Sua Cidade" list="cidades">
+                                <datalist id="cidades">
+                                    <option value="São Paulo"></option>
+                                    <option value="Guarulhos"></option>
+                                    <option value="Caieiras"></option>
+                                    <option value="Franco da Rocha"></option>
+                                </datalist>
+                            </p>
+                    </fieldset>
+    
+                    <fieldset id="mensagem">
+                        <legend>Mensagem do Usuário</legend>
+                            <p>
+                                <label for="cUrg">Grau de Urgência:</label>
+                                Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2">Max
+                            </p>
+                            <p>
+                                <label for="cMsg">Mensagem:</label>
+                                <textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Digite aqui sua mensagem"></textarea>
+                            </p>
+                    </fieldset>
+    
+                    <fieldset id="pedido">
+                        <legend>Quero um Google Glass</legend>
+                            <p>
+                                <input type="checkbox" name="tPed" id="cPed"/>
+                                <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label>
+                            </p>
+                            <p>
+                                <label for="cCor">Cor:</label>
+                                <input type="color" name="tCor" id="cCor"/>
+                            </p>
+                            <p>
+                                <label for="cQuan">Quantidade:</label>
+                                <input type="number" name="tQuan" id="cQuan" min="0" max="5" value="0"/>
+                            </p>
+                            <p>
+                                <label for="cPreco">Preço Total: R$</label>
+                                <input type="text" name="tPreco" id="cPreco" placeholder="Total a Pagar" readonly/>
+                            </p>
+                    </fieldset>
+                    <input type="image" name="tEnviar" src="_imagens/botao-enviar.png"/>
+                </form>
+            </article>
+        </section>
 
-Endereço do Usuário
-    Logradouro:
-    Número:
-    Estado:
-    Cidade:
-
-Mensagem do Usuário
-    Grau de Urgência:
-    Mensagem:
-
-Quero um Google Glass
-    Gostaria de adquirir um Google Glass quando disponível
-    Cor:
-    Quantidade:
-    Preço Total: R$
-
-
-[BOTÃO ENVIAR]
-
-Copyright 2013 - by Gustavo Guanabara
-Facebook | Twitter
+        <footer id="rodape">
+            <p>
+                Copyright &copy; 2020 - by Fernando Alves de Souza <br/>
+                <a href="https://www.facebook.com/fernando.alves.315213" target="_blank">Facebook</a> | <a href="https://twitter.com/fe_benesinho" target="_blank">Twitter</a> | <a href="https://linkedin.com/in/fernando-alves-de-souza-b27223128" target="_blank">LinkedIn</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
